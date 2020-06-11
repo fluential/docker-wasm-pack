@@ -6,13 +6,13 @@ WORKDIR /sources
 
 # common packages
 RUN apt-get update && \
-    apt-get install --no-install-recommends zlib1g-dev -y \
+    apt-get install --no-install-recommends ruby gem bundler zlib1g-dev -y \
     ca-certificates curl file \
     build-essential \
     autoconf automake autotools-dev libtool xutils-dev && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SSL_VERSION=1.0.2o
+ENV SSL_VERSION=1.1.1g
 
 RUN curl https://www.openssl.org/source/openssl-$SSL_VERSION.tar.gz -O && \
     tar -xzf openssl-$SSL_VERSION.tar.gz && \
